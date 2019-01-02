@@ -1,0 +1,20 @@
+
+#create_room {
+    width: 600px;
+}
+
+#headDiv {
+    height: 36px;
+}
+
+#createBtn {
+    float: left;
+}
+
+#joinDiv {
+    float: right;
+}
+
+#availableRooms {
+    text-align: center;
+}

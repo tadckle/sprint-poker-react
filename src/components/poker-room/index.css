@@ -1,0 +1,61 @@
+#leftChat {
+    width: 294px;
+    float: left;
+}
+
+#chatPaneArea {
+    height: 600px; 
+    border:1px solid #99CCFF; 
+    padding: 8px; 
+    overflow-y: auto;
+}
+
+#midDivider {
+    width: 5px; 
+    float: left;
+}
+
+#rightPoker {
+    float: right;
+}
+
+#rightTopDiv {
+    height: 30px;
+}
+
+#showRoomDiv {
+    float: left; 
+    margin-top: 6px;
+}
+
+#exitRoom {
+    float:right;
+}
+
+#statisticsTable {
+text-align: center;
+}
+
+#avgDiv {
+    text-align: left;
+}
+
+#avgHeadDiv {
+    float: left;
+}
+
+#avgPoint {
+    margin-top: 5px;
+}
+
+#clear {
+    float:right;
+}
+
+#statisticsMargin {
+    margin-top: 5px;
+}
+
+#resultTable {
+    text-align: center;
+}
