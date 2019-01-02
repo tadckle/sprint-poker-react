@@ -1,5 +1,7 @@
 import { createStore } from 'redux';
 
+const UNKNOW_FIBONICA = -99;
+
 const pages = {
     LOGIN: "__login_page",
     CREATE_ROOM: "__create_room_page",
@@ -66,6 +68,7 @@ function updateHasVoted(hasVoted) {
     return {type: actionTypes.UPDATE_HAS_VOTED, hasVoted}
 }
 
+// It then makes modalOpen be true. Pop pup transparent pane.
 function updateErrorMsg(errorMsg) {
     return {type: actionTypes.UPDATE_ERROR_MSG, errorMsg}
 }
@@ -126,4 +129,4 @@ let store = createStore(stateReducer, initialState);
 
 export { store, pages, setName, changePage, updateRooms, setIsHost, setRoomId, 
     setSearchRoomId, setFibonacciNum, addMessage, clearMessage, updatePlayers,
-    updateHasVoted, updateErrorMsg, setModalOpen };
+    updateHasVoted, updateErrorMsg, setModalOpen, UNKNOW_FIBONICA };

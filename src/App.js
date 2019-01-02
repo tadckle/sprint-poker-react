@@ -31,7 +31,7 @@ class App extends Component {
                 basic
                 size='small'>
 
-                <Header icon='browser' content='Warning' />
+                <Header icon='warning sign' content='Warning' />
                 <Modal.Content>
                     <h3>{this.props.errorMsg}</h3>
                 </Modal.Content>

@@ -17,7 +17,6 @@ const cmdTypes = {
     CHAT: 12,
     RETURN_ROOM_DASHBOARD: 13,
     SET_AS_HOST: 14,
-    UNKNOW_FIBONICA: -99,
     SHOW_LOGIN: 100
 }
 
@@ -38,7 +37,6 @@ function sendMessage(cmdType) {
     let state = store.getState();
     let user = {name: state.name, isHost: state.isHost, fibonacciNum: state.fibonacciNum};
     let command = {type: cmdType, roomNum: state.roomId, player: user};
-    console.log(command);
     socket.send(JSON.stringify(command));
 }
 

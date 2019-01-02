@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import './index.css';
 import DoneImage from '../../images/done.jpg';
+import { UNKNOW_FIBONICA } from '../../actions/Reducer';
 
-const UNKNOW_FIBONICA = -99;
 let isAllDone = false;
 let averagePoint = "XXX";
 let statistics = []
@@ -12,46 +12,9 @@ class Statistics extends Component {
 
     // Initialize some internal states.
     componentWillUpdate(nextProps, nextState) {
-        let players = nextProps.players;
-        isAllDone = players.filter(player => player.fibonacciNum === -1).length <= 0;
-        averagePoint = this.countAveragePoiont(players, isAllDone);
-        statistics = this.generateStatistics(players, isAllDone);
-    }
-
-    countAveragePoiont(players, isAllDone) {
-        if (!isAllDone) {
-            return "XXX";
-        }
-        let clearVotePlayers = players.filter(player => player.fibonacciNum !== UNKNOW_FIBONICA);
-        if (clearVotePlayers.length <= 0) {
-            return UNKNOW_FIBONICA;
-        }
-        let sum = clearVotePlayers.map(player => player.fibonacciNum)
-                .reduce((num1, num2) => num1 + num2)
-        let average = sum / clearVotePlayers.length;
-        return Math.floor(average * 10) / 10;
-    }
-
-    generateStatistics(players, isAllDone) {
-        if (!isAllDone) {
-            return [];
-        }
-        let playerGroup = [];
-        players.forEach(player => {
-            let playerItem = playerGroup.find(item => item.fibonacciNum === player.fibonacciNum);
-            if (playerItem === undefined) {
-                playerGroup.push({fibonacciNum: player.fibonacciNum, players: [player]});
-            } else {
-                playerItem.players.push(player);
-            }
-        })
-        
-        let fibonacciCount = [];
-        playerGroup.forEach(group => {
-            fibonacciCount.push({fibonacciNum: group.fibonacciNum, count: group.players.length})
-        })
-        fibonacciCount.sort((count1, count2) => count2.count - count1.count);
-        return fibonacciCount;
+        isAllDone = nextProps.isAllDone;
+        averagePoint = nextProps.averagePoint;
+        statistics = nextProps.statistics;
     }
 
     getFibonacciVal(number, isAllDone) {

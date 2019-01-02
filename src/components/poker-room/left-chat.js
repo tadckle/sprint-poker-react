@@ -14,7 +14,7 @@ class LeftChat extends Component {
     sendChatText(event) {
         let chatText = this.msgInput.inputRef.value;
         if (chatText.length <= 0) {
-            console.log("Empty text.")
+            this.props.updateErrorMsg("Empty message.");
         } else {
             this.context.sendChatText(chatText);
             this.msgInput.inputRef.value = "";
