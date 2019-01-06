@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import LeftChat from './left-chat';
-import FibonacciBtns from './fibonacci-btns';
-import Statistics from './statistics';
-import './index.css';
+import LeftChat from './LeftChat';
+import FibonacciBtns from './FibonacciBtns';
+import Statistics from './Statistics';
+import './PokerRoom.css';
 
 class PokerRoom extends Component {
 

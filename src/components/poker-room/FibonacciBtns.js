@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import './index.css';
+import './PokerRoom.css';
 import { pages, UNKNOW_FIBONICA } from '../../actions/Reducer';
 
 class FibonacciBtns extends Component {

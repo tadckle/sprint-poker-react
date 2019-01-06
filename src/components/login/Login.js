@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './index.css';
+import './Login.css';
 import PokerImage from '../../images/poker.jpg';
 
 class Login extends Component {

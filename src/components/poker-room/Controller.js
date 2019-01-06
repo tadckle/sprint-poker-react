@@ -1,48 +1,8 @@
-import { changePage, setName, setIsHost, setRoomId, setSearchRoomId, 
-    setFibonacciNum, clearMessage, updateHasVoted, setModalOpen, 
-    updateErrorMsg, UNKNOW_FIBONICA } from '../actions/Reducer';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
-import App from '../App';
-import Login from '../components/login';
-import CreateRoom from '../components/create-room';
-import PokerRoom from '../components/poker-room';
-
-const AppView = connect(state => {
-    return {
-        page: state.page,
-        errorMsg: state.errorMsg,
-        modalOpen: state.modalOpen
-    }
-}, dispatch => {
-    return {
-        setModalOpen: bindActionCreators(setModalOpen, dispatch)
-    }
-})(App)
-
-
-const LoginView = connect(state => {
-    return {name: state.name}
-}, dispatch => {
-    return {setName: bindActionCreators(setName, dispatch)}
-})(Login);
-
-
-const CreateRoomView = connect(state => {
-    return {
-        name: state.name,
-        rooms: state.rooms,
-        searchRoomId: state.searchRoomId
-    }
-}, dispatch => {
-    return {
-        setIsHost: bindActionCreators(setIsHost, dispatch),
-        setRoomId: bindActionCreators(setRoomId, dispatch),
-        setSearchRoomId: bindActionCreators(setSearchRoomId, dispatch)
-    }
-})(CreateRoom);
-
+import { UNKNOW_FIBONICA, setIsHost, setFibonacciNum, changePage, clearMessage,
+     updateHasVoted, updateErrorMsg } from '../../actions/Reducer';
+import PokerRoom from './PokerRoom';
 
 function countAveragePoiont(players, isAllDone) {
     if (!isAllDone) {
@@ -103,5 +63,4 @@ const PokerRoomView = connect(state => {
     };
 })(PokerRoom);
 
-
-export {AppView, LoginView, CreateRoomView, PokerRoomView};
+export default PokerRoomView;

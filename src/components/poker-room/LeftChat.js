@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Input} from 'semantic-ui-react';
-import './index.css';
+import './PokerRoom.css';
 
 class LeftChat extends Component {
 

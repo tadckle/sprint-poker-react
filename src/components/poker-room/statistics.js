@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import './index.css';
+import './PokerRoom.css';
 import DoneImage from '../../images/done.jpg';
 import { UNKNOW_FIBONICA } from '../../actions/Reducer';
 

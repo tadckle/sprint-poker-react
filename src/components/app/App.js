@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import 'semantic-ui-css/semantic.min.css';
-import {pages} from './actions/Reducer';
-import {LoginView, CreateRoomView, PokerRoomView} from './controllers/Controller';
-import { cmdTypes, sendMessage, sendChatText } from './actions/SocketHandler';
+import { pages } from '../../actions/Reducer';
+import { cmdTypes, sendMessage, sendChatText } from '../../actions/SocketHandler';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
+import LoginView from '../login/Controller';
+import CreateRoomView from '../create-room/Controller';
+import PokerRoomView from '../poker-room/Controller';
 
 class App extends Component {
 
