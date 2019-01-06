@@ -35,14 +35,20 @@ socket.onclose = function(event) {
 // Send message to server.
 function sendMessage(cmdType) {
     let state = store.getState();
-    let user = {name: state.name, isHost: state.isHost, fibonacciNum: state.fibonacciNum};
-    let command = {type: cmdType, roomNum: state.roomId, player: user};
+    let user = {
+        name: state.login.name, 
+        isHost: state.pokerRoom.isHost, 
+        fibonacciNum: state.pokerRoom.fibonacciNum};
+    let command = {type: cmdType, roomNum: state.pokerRoom.roomId, player: user};
     socket.send(JSON.stringify(command));
 }
 
 function sendChatText(message) {
     let state = store.getState();
-    let user = {name: state.name, isHost: state.isHost, fibonacciNum: state.fibonacciNum};
+    let user = {
+        name: state.login.name, 
+        isHost: state.pokerRoom.isHost, 
+        fibonacciNum: state.pokerRoom.fibonacciNum};
     let command = {type: cmdTypes.CHAT, player: user, chatMsg: message};
     socket.send(JSON.stringify(command));
 }

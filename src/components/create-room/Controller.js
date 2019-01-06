@@ -5,8 +5,8 @@ import CreateRoom from './CreateRoom';
 
 const CreateRoomView = connect(state => {
     return {
-        name: state.name,
-        rooms: state.rooms
+        name: state.login.name,
+        rooms: state.createRoom.rooms
     }
 }, dispatch => {
     return {

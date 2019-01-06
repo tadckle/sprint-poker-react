@@ -73,45 +73,49 @@ function setModalOpen(modalOpen) {
 }
 
 let initialState = {
-    page: pages.LOGIN,
-    rooms: [],
-    name: "",
-    roomId: "-1",
-    isHost: false,
-    fibonacciNum: -1,
-    messages: [],
-    players: [],
-    hasVoted: false,
-    errorMsg: "",
-    modalOpen: false
+    app: {
+        page: pages.LOGIN,
+        errorMsg: "",
+        modalOpen: false
+    },
+    login: { name: "" },
+    createRoom: { rooms: [] },
+    pokerRoom: {
+        roomId: "-1",
+        isHost: false,
+        fibonacciNum: -1,
+        messages: [],
+        players: [],
+        hasVoted: false
+    }
 };
 
 function stateReducer(state = initialState, action) {
     switch(action.type) {
-        case actionTypes.SET_NAME:
-            return {...state, name: action.newName};
         case actionTypes.CHANGE_PAGE:
-            return {...state, page: action.newPage};
-        case actionTypes.UPDATE_ROOMS:
-            return {...state, rooms: action.newRooms};
-        case actionTypes.SET_IS_HOST:
-            return {...state, isHost: action.isHost};
-        case actionTypes.SET_ROOM_ID:
-            return {...state, roomId: action.newRoomId}
-        case actionTypes.SET_FIBONACCI_NUM:
-            return {...state, fibonacciNum: action.newNum}
-        case actionTypes.ADD_MESSAGE:
-            return {...state, messages: [...state.messages, action.newMessage]}
-        case actionTypes.CLEAR_MESSAGE:
-            return {...state, messages: []}
-        case actionTypes.UPDATE_PLAYERS:
-            return {...state, players: action.newPlayers}
-        case actionTypes.UPDATE_HAS_VOTED:
-            return {...state, hasVoted: action.hasVoted}
+            return {...state, app: {...state.app, page: action.newPage}};
         case actionTypes.UPDATE_ERROR_MSG:
-            return {...state, errorMsg: action.errorMsg, modalOpen: true}
+            return {...state, app: {...state.app, errorMsg: action.errorMsg, modalOpen: true}}
         case actionTypes.SET_MODAL_OPEN:
-            return {...state, modalOpen: action.modalOpen}
+            return {...state, app: {...state.app, modalOpen: action.modalOpen}}
+        case actionTypes.SET_NAME:
+            return {...state, login: {...state.login, name: action.newName }};
+        case actionTypes.UPDATE_ROOMS:
+            return {...state, createRoom: {...state.createRoom, rooms: action.newRooms }};
+        case actionTypes.SET_IS_HOST:
+            return {...state, pokerRoom: {...state.pokerRoom, isHost: action.isHost}};
+        case actionTypes.SET_ROOM_ID:
+            return {...state, pokerRoom: {...state.pokerRoom, roomId: action.newRoomId}}
+        case actionTypes.SET_FIBONACCI_NUM:
+            return {...state, pokerRoom: {...state.pokerRoom, fibonacciNum: action.newNum}}
+        case actionTypes.ADD_MESSAGE:
+            return {...state, pokerRoom: {...state.pokerRoom, messages: [...state.pokerRoom.messages, action.newMessage]}}
+        case actionTypes.CLEAR_MESSAGE:
+            return {...state, pokerRoom: {...state.pokerRoom, messages: []}}
+        case actionTypes.UPDATE_PLAYERS:
+            return {...state, pokerRoom: {...state.pokerRoom, players: action.newPlayers}}
+        case actionTypes.UPDATE_HAS_VOTED:
+            return {...state, pokerRoom: {...state.pokerRoom, }, hasVoted: action.hasVoted}
         default:
             return state;
     }

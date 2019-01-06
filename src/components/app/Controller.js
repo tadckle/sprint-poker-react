@@ -5,9 +5,9 @@ import App from './App';
 
 const AppView = connect(state => {
     return {
-        page: state.page,
-        errorMsg: state.errorMsg,
-        modalOpen: state.modalOpen
+        page: state.app.page,
+        errorMsg: state.app.errorMsg,
+        modalOpen: state.app.modalOpen
     }
 }, dispatch => {
     return {

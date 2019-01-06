@@ -41,16 +41,17 @@ function generateStatistics(players, isAllDone) {
 }
 
 const PokerRoomView = connect(state => {
-    let isAllDone = state.players.filter(player => player.fibonacciNum === -1).length <= 0;
+    let players = state.pokerRoom.players;
+    let isAllDone = players.filter(player => player.fibonacciNum === -1).length <= 0;
     return {
-        roomId: state.roomId,
-        messages: state.messages,
-        players: state.players,
-        isHost: state.isHost,
-        hasVoted: state.hasVoted,
+        roomId: state.pokerRoom.roomId,
+        messages: state.pokerRoom.messages,
+        players: state.pokerRoom.players,
+        isHost: state.pokerRoom.isHost,
+        hasVoted: state.pokerRoom.hasVoted,
         isAllDone,
-        averagePoint: countAveragePoiont(state.players, isAllDone),
-        statistics: generateStatistics(state.players, isAllDone)
+        averagePoint: countAveragePoiont(players, isAllDone),
+        statistics: generateStatistics(players, isAllDone)
     };
 }, dispatch => {
     return {

@@ -4,7 +4,7 @@ import { setName } from '../../actions/Reducer';
 import Login from './Login';
 
 const LoginView = connect(state => {
-    return {name: state.name}
+    return {name: state.login.name}
 }, dispatch => {
     return {setName: bindActionCreators(setName, dispatch)}
 })(Login);
