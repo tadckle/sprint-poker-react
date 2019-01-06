@@ -13,7 +13,6 @@ const actionTypes = {
     SET_NAME: "__set_name",
     SET_IS_HOST: "__set_is_host",
     SET_ROOM_ID: "__set_room_id",
-    SET_SEARCH_ROOM_ID: "__set_search_room_id",
     SET_FIBONACCI_NUM: "__set_fibonacci_num",
     UPDATE_ROOMS: "__update_rooms",
     ADD_MESSAGE: "__add_message",
@@ -34,10 +33,6 @@ function setIsHost(isHost) {
 
 function setRoomId(newRoomId) {
     return {type: actionTypes.SET_ROOM_ID, newRoomId};
-}
-
-function setSearchRoomId(typedRoomId) {
-    return {type: actionTypes.SET_SEARCH_ROOM_ID, typedRoomId}
 }
 
 function setFibonacciNum(newNum) {
@@ -81,7 +76,6 @@ let initialState = {
     page: pages.LOGIN,
     rooms: [],
     name: "",
-    searchRoomId: "",
     roomId: "-1",
     isHost: false,
     fibonacciNum: -1,
@@ -104,8 +98,6 @@ function stateReducer(state = initialState, action) {
             return {...state, isHost: action.isHost};
         case actionTypes.SET_ROOM_ID:
             return {...state, roomId: action.newRoomId}
-        case actionTypes.SET_SEARCH_ROOM_ID:
-            return {...state, searchRoomId: action.typedRoomId}
         case actionTypes.SET_FIBONACCI_NUM:
             return {...state, fibonacciNum: action.newNum}
         case actionTypes.ADD_MESSAGE:
@@ -128,5 +120,5 @@ function stateReducer(state = initialState, action) {
 let store = createStore(stateReducer, initialState);
 
 export { store, pages, setName, changePage, updateRooms, setIsHost, setRoomId, 
-    setSearchRoomId, setFibonacciNum, addMessage, clearMessage, updatePlayers,
+    setFibonacciNum, addMessage, clearMessage, updatePlayers,
     updateHasVoted, updateErrorMsg, setModalOpen, UNKNOW_FIBONICA };

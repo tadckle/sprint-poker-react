@@ -18,7 +18,7 @@ class CreateRoom extends Component {
 
     enterClicked(event) {
         if (event.keyCode === 13) {
-            this.joinRoom(this.props.searchRoomId);
+            this.joinRoom(this.roomIdInput.inputRef.value);
         }
     }
 
@@ -50,9 +50,8 @@ class CreateRoom extends Component {
                             onClick: this.joinRoom.bind(this, this.props.searchRoomId)
                         }}
                         placeholder='Enter room id ...' 
-                        value={this.props.searchRoomId} 
                         onKeyUp={this.enterClicked}
-                        onChange={this.onSearchRoomIdChange} />
+                        ref={(input) => this.roomIdInput = input} />
                     </div>
                 </div>
 
